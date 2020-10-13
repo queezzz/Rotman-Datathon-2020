@@ -16,4 +16,4 @@ Meeting Notes: [on Google Doc](https://docs.google.com/document/d/1GDX0khcl4guta
 
 Everyone's Schedule: [on Google Sheets](https://docs.google.com/spreadsheets/d/1PEfY_ZOGVfZoc_HR4ocNXaqh5bjGgjAd1ZT_4XgvCm0/edit?usp=sharing)
 
-
+Final presentation: Google slides? Powerpoint? TBD
