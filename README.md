@@ -1,7 +1,11 @@
 # Rotman MMA Datathon 2020
 
-### Work in Progress
-write more stuff laterrrr...
+### Prelimary EDA Reports for every dataset
+
+* Beneficiary: https://queezzz.github.io/Datathon2020/PreliminaryEDA/beneficiary_EDA.html
+* Inpatients: https://queezzz.github.io/Datathon2020/PreliminaryEDA/inpatients_EDA.html
+* Outpatients: https://queezzz.github.io/Datathon2020/PreliminaryEDA/outpatients_EDA.html
+* Providers: https://queezzz.github.io/Datathon2020/PreliminaryEDA/providers_EDA.html
 
 
 ### Important Links
