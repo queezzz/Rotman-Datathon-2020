@@ -1,0 +1,249 @@
+---
+title: "Benef analysis"
+output: html_document
+---
+
+```{r, include=True}
+library(tidyverse)
+library(caret)
+
+benef<- read.csv("/Users/admin/PycharmProjects/Datathon2020/benef_final.csv")
+
+set.seed(123)
+train_ind <- sample(seq_len(nrow(benef)), size = floor(0.7 * nrow(benef)))
+
+training <- benef[train_ind, ]
+testing <- benef[-train_ind, ]
+ 
+diseases <- glm(Fraud ~ Chronic_Alzheimer+Chronic_Heartfailure+       
+               Chronic_KidneyDisease+Chronic_Cancer+
+                 Chronic_ObstrPulmonary+Chronic_Depression+
+               Chronic_Diabetes+Chronic_IschemicHeart+
+                 Chronic_Osteoporasis+Chronic_rheumatoidarthritis+
+                 Chronic_stroke, data=training,
+               family='binomial')
+
+summary(diseases)
+#Chronic_KidneyDisease
+#obstr pulmonary 
+#Depression
+#IschemicHeart 
+#Stroke
+
+testing <- testing %>% 
+  mutate(y_pred = predict(diseases, testing, type='response'),
+         pred = if_else(y_pred>0.5, 1, 0))
+
+testing$pred <- testing$pred %>% as.factor()
+testing$Fraud <- testing$Fraud %>% as.factor()
+
+confusionMatrix(testing$pred, testing$Fraud)
+## never predicts true cases .. abort model
+
+```
+```{r, include=T}
+#logm <- glm(Fraud~Race+Gender+Is_inpatient+Age+Chronic_Alzheimer+Chronic_Heartfailure+Chronic_KidneyDisease+Chronic_Cancer+Chronic_ObstrPulmonary+Chronic_Depression+Chronic_Diabetes+Chronic_IschemicHeart+Chronic_Osteoporasis+Chronic_rheumatoidarthritis+Chronic_stroke+RenalDisease+FullYearPlanA+FullYearPlanB, data=benef, family="binomial")
+#summary(logm)
+
+logm1 <- glm(Fraud~Race+Gender+Is_inpatient+Age+Chronic_Alzheimer+Chronic_Heartfailure+Chronic_KidneyDisease+Chronic_Cancer+Chronic_ObstrPulmonary+Chronic_Depression+Chronic_Diabetes+Chronic_IschemicHeart+Chronic_Osteoporasis+Chronic_rheumatoidarthritis+Chronic_stroke+RenalDisease+FullYearPlanA+FullYearPlanB+State+County, data=benef, family="binomial")
+summary(logm1)
+#Race
+#Is_inpatient
+#Age
+#Chronic_KidneyDisease
+#Chronic_Depression
+#Chronic_Diabetes
+#FullYearPlanATrue
+#State
+#County
+
+testing <- testing %>% 
+  mutate(y_pred = predict(logm1, testing, type='response'),
+         pred = if_else(y_pred>0.5, 1, 0))
+
+testing$pred <- testing$pred %>% as.factor()
+testing$Fraud <- testing$Fraud %>% as.factor()
+
+confusionMatrix(testing$pred, testing$Fraud)
+
+```
+
+```{r, include=T}
+logm <- glm(Fraud~Race+Is_inpatient+Age+Chronic_KidneyDisease+Chronic_Depression+Chronic_Diabetes+FullYearPlanA+State+County, data=benef, family="binomial")
+summary(logm)
+#Race
+#Is_inpatient
+#Age
+#Chronic_KidneyDisease
+#Chronic_Depression
+#Chronic_Diabetes
+#FullYearPlanATrue
+#State
+#County
+
+testing <- testing %>% 
+  mutate(y_pred = predict(logm, testing, type='response'),
+         pred = if_else(y_pred>0.5, 1, 0))
+
+testing$pred <- testing$pred %>% as.factor()
+testing$Fraud <- testing$Fraud %>% as.factor()
+
+confusionMatrix(testing$pred, testing$Fraud)
+
+
+```
+
+```{r, include=T}
+logm2 <- glm(Fraud~Race+Is_inpatient+Age+Chronic_KidneyDisease+Chronic_Depression+FullYearPlanA+State+County, data=benef, family="binomial")
+summary(logm2)
+#Race
+#Is_inpatient
+#Age
+#Chronic_KidneyDisease
+#Chronic_Depression
+#Chronic_Diabetes
+#FullYearPlanATrue
+#State
+#County
+
+testing <- testing %>% 
+  mutate(y_pred = predict(logm2, testing, type='response'),
+         pred = if_else(y_pred>0.5, 1, 0))
+
+testing$pred <- testing$pred %>% as.factor()
+testing$Fraud <- testing$Fraud %>% as.factor()
+
+confusionMatrix(testing$pred, testing$Fraud)
+```
+
+```{r, include=T}
+benef2<- read.csv("/Users/admin/PycharmProjects/Datathon2020/benef_v2.csv")
+
+set.seed(123)
+train_ind <- sample(seq_len(nrow(benef2)), size = floor(0.7 * nrow(benef2)))
+
+training <- benef2[train_ind, ]
+testing <- benef2[-train_ind, ]
+
+m1 <- glm(Fraud~Race+Gender+Is_inpatient+Age+Chronic_Alzheimer+Chronic_Heartfailure+Chronic_KidneyDisease+Chronic_Cancer+Chronic_ObstrPulmonary+Chronic_Depression+Chronic_Diabetes+Chronic_IschemicHeart+Chronic_Osteoporasis+Chronic_rheumatoidarthritis+RenalDisease+FullYearPlanA+FullYearPlanB+State+County+ChronicDisease_Num, data=benef2, family="binomial")
+summary(m1)
+#Race
+#Is_inpatient
+#Age
+#Chronic_KidneyDisease
+#Chronic_Depression
+#Chronic_Diabetes
+#FullYearPlanATrue
+#State
+#County
+
+testing <- testing %>% 
+  mutate(y_pred = predict(m1, testing, type='response'),
+         pred = if_else(y_pred>0.5, 1, 0))
+
+testing$pred <- testing$pred %>% as.factor()
+testing$Fraud <- testing$Fraud %>% as.factor()
+
+confusionMatrix(testing$pred, testing$Fraud)
+
+```
+
+```{r, include=T}
+## HIGHLIGHT -------------------------------
+benef_<- read.csv("/Users/admin/PycharmProjects/Datathon2020/benef_final_fix.csv")
+
+set.seed(123)
+train_ind <- sample(seq_len(nrow(benef_)), size = floor(0.7 * nrow(benef_)))
+
+training <- benef_[train_ind, ]
+testing <- benef_[-train_ind, ]
+
+model1 <- glm(Has_Fraud~NumOfClaims+Race+Gender+Is_inpatient+Age+Chronic_Alzheimer+Chronic_Heartfailure+Chronic_KidneyDisease+Chronic_Cancer+Chronic_ObstrPulmonary+Chronic_Depression+Chronic_Diabetes+Chronic_IschemicHeart+Chronic_Osteoporasis+Chronic_rheumatoidarthritis+RenalDisease+FullYearPlanA+FullYearPlanB+State+County+  Chronic_stroke, data=benef_, family="binomial")
+summary(model1)
+#NumOfClaims
+#Race
+#Is_inpatient
+#Age
+#Chronic_KidneyDisease
+#Chronic_IschemicHeart
+#RenalDisease
+#Chronic_Osteoporasis
+#State
+#County
+
+testing <- testing %>% 
+  mutate(y_pred = predict(model1, testing, type='response'),
+         pred = if_else(y_pred>0.5, 1, 0))
+
+testing$pred <- testing$pred %>% as.factor()
+testing$Has_Fraud <- testing$Has_Fraud %>% as.factor()
+
+confusionMatrix(testing$pred, testing$Has_Fraud)
+```
+
+```{r, include=T}
+## HIGHLIGHT -------------------------------
+###########ONLY contains significant predictors #################################
+
+model1_ <- glm(Has_Fraud~NumOfClaims+Race+Is_inpatient+Age+Chronic_KidneyDisease+Chronic_IschemicHeart+Chronic_Osteoporasis+RenalDisease+State+County, data=benef_, family="binomial")
+summary(model1_)
+#NumOfClaims
+#Race
+#Is_inpatient
+#Age
+#Chronic_KidneyDisease
+#Chronic_IschemicHeart
+#RenalDisease
+#Chronic_Osteoporasis
+#State
+#County
+
+testing <- testing %>% 
+  mutate(y_pred = predict(model1_, testing, type='response'),
+         pred = if_else(y_pred>0.5, 1, 0))
+
+testing$pred <- testing$pred %>% as.factor()
+testing$Has_Fraud <- testing$Has_Fraud %>% as.factor()
+
+confusionMatrix(testing$pred, testing$Has_Fraud)
+
+#gg2 <- ggplot(aids,aes(Has_Fraud,NumOfClaims))+geom_point()+geom_smooth(method="glm",formula=model1_,method.args=list(family="binomial"))
+```
+
+```{r, include=T}
+# FAIL..........
+model2 <- glm(NumOfFraud~NumOfClaims+Race+Gender+Is_inpatient+Age+Chronic_Alzheimer+Chronic_Heartfailure+Chronic_KidneyDisease+Chronic_Cancer+Chronic_ObstrPulmonary+Chronic_Depression+Chronic_Diabetes+Chronic_IschemicHeart+Chronic_Osteoporasis+Chronic_rheumatoidarthritis+RenalDisease+FullYearPlanA+FullYearPlanB+State+County+  Chronic_stroke, data=benef_, family="poisson")
+summary(model2)
+#NumOfClaims
+#Race
+#Is_inpatient
+#Age
+#Chronic_KidneyDisease
+#Chronic_IschemicHeart
+#RenalDisease
+#Chronic_Osteoporasis
+#State
+#County
+
+testing <- testing %>% 
+  mutate(y_pred = predict(model2, testing, type='response'),
+         pred = if_else(y_pred>0.5, 1, 0))
+
+testing$pred <- testing$pred %>% as.factor()
+testing$NumOfFraud <- testing$NumOfFraud %>% as.factor()
+
+confusionMatrix(testing$pred, testing$NumOfFraud)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
