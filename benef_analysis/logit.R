@@ -8,7 +8,7 @@ ID <- read.csv('./cleaned_data/extra_benef.csv')
 fraud_label <- read.csv('./web_app/data/final.csv')
 
 benef_extra <- benef %>% cbind(ID[,-1])
-benef_label <- benef_extra %>% cbind(fraud_label[,c(1,24)])
+benef_label <- benef_extra %>% cbind(fraud_label[,c(1,26)])
 
 benef1 <- benef_label[, -c(26,24)]
 
@@ -36,9 +36,9 @@ benef_final <- benef1 %>% group_by(BID) %>%
         ChronicDisease_Num = first(ChronicDisease_Num),
         NumOfClaims = n(),
         #NumOfProviders = n_distinct(PID),
-        NumOfNonFraud = sum(union_real==-1),
-        NumOfPotentialFraud = sum(union_real==0),
-        NumOfRealFraud = sum(union_real==1)
+        NumOfNonFraud = sum(lof==-1),
+        NumOfPotentialFraud = sum(lof==0),
+        NumOfRealFraud = sum(lof==1)
         #,
         #Has_Fraud = case_when(NumFraud>0 ~ 1,
          #                     Has_RealFraud>0 ~ 1,
@@ -46,13 +46,12 @@ benef_final <- benef1 %>% group_by(BID) %>%
         )
 
 ##confirming 
-fraud_policyholder <- benef %>% filter(Fraud == 1)
-length(unique(fraud_policyholder$BID)) == sum(benef1$Has_Fraud)
-## TRUE 
-
-
+table(fraud_label$lof)
+sum(benef_final$NumOfNonFraud)
+sum(benef_final$NumOfPotentialFraud)
+sum(benef_final$NumOfRealFraud)
 ## export new df 
-#write_csv(benef1, './cleaned_data/benef_final_fix.csv')
+write_csv(benef_final, './cleaned_data/benef_new_label.csv')
 
 set.seed(123)
 train_ind <- sample(seq_len(nrow(benef1)), size = floor(0.7 * nrow(benef)))
