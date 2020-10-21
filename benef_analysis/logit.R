@@ -4,8 +4,15 @@ library(caret)
 setwd('~/Desktop/final_yr/case_comp/Datathon2020/')
 
 benef <- read.csv('./cleaned_data/benef_final.csv')
+ID <- read.csv('./cleaned_data/extra_benef.csv')
+fraud_label <- read.csv('./web_app/data/final.csv')
 
-benef1 <- benef %>% group_by(BID) %>%
+benef_extra <- benef %>% cbind(ID[,-1])
+benef_label <- benef_extra %>% cbind(fraud_label[,c(1,24)])
+
+benef1 <- benef_label[, -c(26,24)]
+
+benef_final <- benef1 %>% group_by(BID) %>%
   summarise(Gender = first(Gender),
          Is_inpatient = first(Is_inpatient),
          Age = first(Age),
@@ -26,10 +33,17 @@ benef1 <- benef %>% group_by(BID) %>%
         RenalDisease = first(RenalDisease),
         FullYearPlanA = first(FullYearPlanA),
         FullYearPlanB = first(FullYearPlanB),
+        ChronicDisease_Num = first(ChronicDisease_Num),
         NumOfClaims = n(),
-        NumOfFraud = sum(Fraud),
-        Has_Fraud = case_when(NumOfFraud>0 ~ 1,
-                              TRUE ~ 0))
+        #NumOfProviders = n_distinct(PID),
+        NumOfNonFraud = sum(union_real==-1),
+        NumOfPotentialFraud = sum(union_real==0),
+        NumOfRealFraud = sum(union_real==1)
+        #,
+        #Has_Fraud = case_when(NumFraud>0 ~ 1,
+         #                     Has_RealFraud>0 ~ 1,
+          #          TRUE ~ 0)
+        )
 
 ##confirming 
 fraud_policyholder <- benef %>% filter(Fraud == 1)
