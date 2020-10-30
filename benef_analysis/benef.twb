@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20194.20.0119.2058                               -->
+<workbook original-version='18.1' source-build='2019.4.2 (20194.20.0119.2058)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='benef_final' inline='true' name='federated.1mfydb6020clts15yxep51h46icy' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='benef_final' name='textscan.1cshzc31hnkx6d10ztfym1lt7e8a'>
+            <connection class='textscan' directory='/Users/quee/Desktop/final_yr/case_comp/Datathon2020/cleaned_data' filename='benef_final.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1cshzc31hnkx6d10ztfym1lt7e8a' name='benef_final.csv' table='[benef_final#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_CA' separator=','>
+            <column datatype='integer' name='Is_inpatient' ordinal='0' />
+            <column datatype='integer' name='Gender' ordinal='1' />
+            <column datatype='integer' name='Age' ordinal='2' />
+            <column datatype='integer' name='Race' ordinal='3' />
+            <column datatype='integer' name='State' ordinal='4' />
+            <column datatype='integer' name='County' ordinal='5' />
+            <column datatype='integer' name='Chronic_Alzheimer' ordinal='6' />
+            <column datatype='integer' name='Chronic_Heartfailure' ordinal='7' />
+            <column datatype='integer' name='Chronic_KidneyDisease' ordinal='8' />
+            <column datatype='integer' name='Chronic_Cancer' ordinal='9' />
+            <column datatype='integer' name='Chronic_ObstrPulmonary' ordinal='10' />
+            <column datatype='integer' name='Chronic_Depression' ordinal='11' />
+            <column datatype='integer' name='Chronic_Diabetes' ordinal='12' />
+            <column datatype='integer' name='Chronic_IschemicHeart' ordinal='13' />
+            <column datatype='integer' name='Chronic_Osteoporasis' ordinal='14' />
+            <column datatype='integer' name='Chronic_rheumatoidarthritis' ordinal='15' />
+            <column datatype='integer' name='Chronic_stroke' ordinal='16' />
+            <column datatype='integer' name='RenalDisease' ordinal='17' />
+            <column datatype='boolean' name='FullYearPlanA' ordinal='18' />
+            <column datatype='boolean' name='FullYearPlanB' ordinal='19' />
+            <column datatype='integer' name='Fraud' ordinal='20' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_CA&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Is_inpatient</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Is_inpatient]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Is_inpatient</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Gender</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Gender]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Gender</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Age]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Age</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Race</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Race]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Race</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>State</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[State]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>State</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>County</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[County]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>County</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_Alzheimer</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_Alzheimer]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_Alzheimer</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_Heartfailure</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_Heartfailure]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_Heartfailure</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_KidneyDisease</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_KidneyDisease]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_KidneyDisease</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_Cancer</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_Cancer]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_Cancer</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_ObstrPulmonary</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_ObstrPulmonary]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_ObstrPulmonary</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_Depression</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_Depression]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_Depression</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_Diabetes</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_Diabetes]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_Diabetes</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_IschemicHeart</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_IschemicHeart]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_IschemicHeart</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_Osteoporasis</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_Osteoporasis]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_Osteoporasis</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_rheumatoidarthritis</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_rheumatoidarthritis]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_rheumatoidarthritis</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Chronic_stroke</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Chronic_stroke]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Chronic_stroke</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>RenalDisease</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[RenalDisease]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>RenalDisease</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FullYearPlanA</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FullYearPlanA]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>FullYearPlanA</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FullYearPlanB</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[FullYearPlanB]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>FullYearPlanB</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Fraud</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Fraud]</local-name>
+            <parent-name>[benef_final.csv]</parent-name>
+            <remote-alias>Fraud</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column aggregation='Sum' datatype='integer' name='[Chronic_Alzheimer]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_Cancer]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_Depression]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_Diabetes]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_Heartfailure]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_IschemicHeart]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_KidneyDisease]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_ObstrPulmonary]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_Osteoporasis]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_rheumatoidarthritis]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Chronic_stroke]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Fraud]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' datatype='integer' name='[Is_inpatient]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.516129' measure-ordering='alphabetic' measure-percentage='0.483871' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Canada&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='benef_final' name='federated.1mfydb6020clts15yxep51h46icy' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1mfydb6020clts15yxep51h46icy'>
+            <column aggregation='Sum' datatype='integer' name='[Fraud]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' datatype='integer' name='[Is_inpatient]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[Fraud]' derivation='None' name='[none:Fraud:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Is_inpatient]' derivation='None' name='[none:Is_inpatient:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1mfydb6020clts15yxep51h46icy].[sum:Number of Records:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1mfydb6020clts15yxep51h46icy].[sum:Number of Records:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1mfydb6020clts15yxep51h46icy].[none:Fraud:ok]</rows>
+        <cols>[federated.1mfydb6020clts15yxep51h46icy].[none:Is_inpatient:ok]</cols>
+      </table>
+      <simple-id uuid='{EFD6D8DB-421D-4F7F-B595-A7C0B72F3585}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1mfydb6020clts15yxep51h46icy].[none:Chronic_Cancer:ok]</field>
+            <field>[federated.1mfydb6020clts15yxep51h46icy].[none:Chronic_Depression:ok]</field>
+            <field>[federated.1mfydb6020clts15yxep51h46icy].[none:Is_inpatient:ok]</field>
+            <field>[federated.1mfydb6020clts15yxep51h46icy].[sum:Number of Records:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{C84C8D3D-B80D-4DF8-974E-CBC0D45AA7BD}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='84' name='Sheet 1' width='192'>
+      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
+      +mvi4uJwc3MTJ4QrV640qo9MJjNYWVEqlaxduxZHR0cEQSA/P5+33377sTjFL1u2jO+//x6N
+      RkNRUZG4yrN9+3asrKxISUnBx8fHSHz3t9Xa2prp06ezcOFCZs6ciUqlYvTo0fj4+Ijxd+3a
+      xezZsztuDdr8S7Crqys2NjYdycrsqampoaqqCgcHB6MFhrakra6uxtXVVVzF2bx5M7a2tvzp
+      T38S4zU2NlJSUoKNjQ2Ojo5tzl+v11NWVoZGo8HFxaXV09t/bEy1FZrEa2VlJfamD9LhVlhY
+      WHSJ3QGeBuzt7U2eu9vetJaWlrz55psGYdbW1ri5uT1y/nK5/Knu3U21FWi1l5L8ASTMGska
+      VMKskQQgYda0Ogeor6//MeohIfFEkHoACbNGEoCEWSMJQMKs6RQB6HQ6VCpVZ2Rl9mi1WpMu
+      h3q9ntLSUioqKkymKy8vb5Mpuk6nQ6lUUl5ebmQxqdfrKSwsNLKafDCOSqV67EelNjQ0oFQq
+      Tbp/VlZWolAo2uya2ZKLZ2lpacd+CNPr9aSlpfH555/j6elJZGRkR7Iza/R6PV999RXx8fEE
+      BQUZuJbm5OQQFRWFo6MjWq0WtVrNypUrcXZ2pqGhgSVLlqBSqbCwsECtVrN69WrRzPl+EhIS
+      SElJYcCAATQ2NlJbW8vKlStxc3Pj2rVrrF69moEDB5Kfn4+Pjw9z5841yiMuLo4DBw6wbds2
+      3N3dO/05XL9+ndjYWNH9s6qqiujoaJ599lkuX77MmjVrsLW1xc7Ojtu3bzN79mx+97vftZif
+      Wq0mODgYaDJ/gCZ7oiVLllBfX98xAYSFhZGTk9NmJwaJllm0aBH9+/dn/PjxRvdiY2OZP3++
+      6ANw8OBBtm3bRmRkJAkJCXh5eYneT4mJiWzevJlFixYZ5ePl5UVgYCBWVlYAHD58mB07drBk
+      yRI++eQTVqxYgbu7OxqNhvDwcNLT0/nNb34jps/OziY7Oxtvb+/H8QgAyMjIIDw8nOHDhwNw
+      7Ngxtm3bRkxMDH379mX9+vU4OTkBTb3erFmz8PPza9E77fPPP2fChAkcP35cDNu/fz9ubm68
+      ++67HRsCjRs3jsTERCN3PolHJyoqinnz5uHi4mJ0z8LCwsDMwd7eXvyDX7161eAl/cMf/mDk
+      ON6Mp6en+PLDDy6RlZWVCIIgftGtrKwIDAzkxIkTYlydTsf69ev529/+9ljPBpg1a5b48gMG
+      Njxubm7iy99cp4e5Zubl5XHhwgVDJ3jg+PHjvP7660AHbYFM2V5ItI+H9aIhISGsWrWKyZMn
+      o1Kp+Prrr0UrTkdHR86fP2/w8jo4OFBTU2PSrkipVKJQKDhz5gwXLlxg3bp12Nvbo1QqKSkp
+      Ee19HnQh3Lt3L97e3jzzzDOd2eyHkpuby+rVq/nwww/FsNraWu7cucONGzfYv38/4eHhJtPq
+      9XrWrl3L/PnzjQRSXV0t2gg9XSZ9Eibp06cP3bt358aNG6hUKhwcHLCzswNgxowZvP/++9y6
+      dQsnJyfOnz9Pbm4uKpXKpAD+9a9/cf78ecrKynjrrbfo3bs3MpmMV199lXnz5vHSSy9RWVnJ
+      2bNnRZNjpVLJl19+ydatW3+0Nh85coQtW7YQERFhMOS6ePEi8fHx3L17F19fX4Pzi+/nwIED
+      DBs2jOeee85ogeb+CbwkgJ8AUVFRhIeHiztDHD9+nHXr1hEVFcWoUaPYtGkTJ0+exMLCguDg
+      YNatW9ei+e+CBQuApvFzbGwsJSUlhIaGMmfOHEaOHElWVhbu7u6MGTNGHDevXbuWF154QfT+
+      u3fvHt9//z22traPxUI0NTWVPXv2sGnTJiP/5vHjxzN+/Hg0Gg0pKSnMnz+f+Ph4g698WVkZ
+      27dvZ+nSpWRlZaFWq1Gr1WRlZTF06FDkcjmCICCTySQBPO2o1WpKS0sNtkXx8fHh008/Fa/d
+      3d3FIZBSqUQul7e6ZYmDgwMLFixgzpw5hIaGAvD888+L7pVJSUkMHjwYQRCwtbXlzp073Llz
+      B2jakSE1NRW1Ws3kyZM7tb2XL19m165dxMbGGoz3H8TKygp/f3+OHz9OTk6OQU+gVCr5xS9+
+      QUpKCtA0V6iuriYpKYlZs2aJjkPPPPNM+wWg1WopLCwEmuyFBEHg9u3b2NjYdInjM58WunXr
+      hrW1NdeuXWPUqFEAfPPNN6JNf2NjIxYWFlhYWKDX69m2bRuvvPKKmP7GjRu4u7sjl8s5ceIE
+      EyZMECex97tdNjQ00L17d6DpC5qcnMyGDRuQyWRERUUZ1CkiIoK33nrrsSyDHjt2jJCQEJMv
+      f3p6OqNHjxaHdpWVleTk5IhLvs1t9fDwwMPDQ0ynUqkICQkR2zFhwgSSkpKIjIxsvwAKCwuZ
+      OXOmQdjp06fx9vYmNja2vdmaJRUVFeI+OxUVFQiCQGpqKp6enoSFhbFo0SJWrlyJi4sLGo2G
+      +vp6li1bBjT9RhAdHY27uzt3795l5MiR/P73vwegqKiId955h71792JnZ8fJkyfZunUrrq6u
+      lJWVAfDRRx8BsHv3bjIzM3F0dCQ3N5fQ0FCTK1Jg7DLZmVy6dImzZ8+yfft2MczV1ZWYmBiK
+      i4uJjY0VXTMLCgoICQnBxcXFoK2mFhTur+/UqVNZvHgxc+bMad0hRrIGfToQBIGSkhIsLS2N
+      xvcNDQ0UFRXh5ORkMPH97LPP6NGjB2+88YYY1tjYSGlpKTY2Nkb5lJeXU1VVxaBBgwyWS58m
+      9Ho95eXlaDQanJ2dRddMU21tjeLiYmkO8FNBJpO1+EXu3r27yeVJS0tLAgMDDcKsra0ZMGCA
+      yXwcHBxanDw/LcjlcpPDI1NtbQ0XFxf+D2vL09OS3jQvAAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>

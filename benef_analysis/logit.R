@@ -3,16 +3,19 @@ library(caret)
 
 setwd('~/Desktop/final_yr/case_comp/Datathon2020/')
 
-benef <- read.csv('./cleaned_data/benef_final.csv')
-ID <- read.csv('./cleaned_data/extra_benef.csv')
-fraud_label <- read.csv('./web_app/data/final.csv')
+benef <- read.csv('./cleaned_data/benef_final.csv') 
+#ID <- read.csv('./cleaned_data/extra_benef.csv')
+fraud_label <- read.csv('./cleaned_data/final.csv')
 
-benef_extra <- benef %>% cbind(ID[,-1])
-benef_label <- benef_extra %>% cbind(fraud_label[,c(1,26)])
+## for final model XGBoost ----------
+morbid_final <- fraud_label %>% left_join(benef[, c(1,9:19)], by='CID')
+write_csv(morbid_final, './web_app/morbid_final.csv')
 
-benef1 <- benef_label[, -c(26,24)]
 
-benef_final <- benef1 %>% group_by(BID) %>%
+## for benef level analysis --------------
+benef_label <- benef %>% left_join(fraud_label[,c(1,19,25)], by='CID')
+
+benef_final <- benef_label %>% group_by(BID) %>%
   summarise(Gender = first(Gender),
          Is_inpatient = first(Is_inpatient),
          Age = first(Age),
